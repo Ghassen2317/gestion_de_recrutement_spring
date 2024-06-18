@@ -24,6 +24,8 @@ public class OffreEmploi {
   private String region;
   private Integer nbExperienceOffre;
   private TypeContrat typeContrat;
-  private Date datePublication;
-  private Date dateExpiration;
+ // private Date datePublication;
+ // private Date dateExpiration;
 }
+
+

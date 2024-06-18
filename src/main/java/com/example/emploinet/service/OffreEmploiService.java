@@ -19,30 +19,8 @@ public class OffreEmploiService {
     return offreEmploiRepository.findByNomEntreprise(nomEntreprise);
   }
 
-  public List<OffreEmploi> getNomOffreEmploi(String nomOffreEmploi) {
-    return offreEmploiRepository.findByNomOffreEmploi(nomOffreEmploi);
-  }
-
-  public List<OffreEmploi> getTypeContrat(TypeContrat typeContrat) {
-    return offreEmploiRepository.findByTypeContrat(typeContrat);
-  }
-
-  public List<OffreEmploi> getDateExpiration(Date dateExpiration) {
-    return offreEmploiRepository.findByDateExpiration(dateExpiration);
-  }
-
-  public List<OffreEmploi> getRegion(String region) {
-    return offreEmploiRepository.findByRegion(region);
-  }
-
-  public List<OffreEmploi> getNbExperienceOffre(Integer nbExperienceOffre) {
-    return offreEmploiRepository.findByNbExperienceOffre(nbExperienceOffre);
-  }
   public OffreEmploi createOffreEmploi(OffreEmploi offreEmploi) {
     return offreEmploiRepository.save(offreEmploi);
-  }
+}
 
-  public void deleteOffreEmploi(OffreEmploi offreEmploi) {
-    offreEmploiRepository.delete(offreEmploi);
-  }
 }
