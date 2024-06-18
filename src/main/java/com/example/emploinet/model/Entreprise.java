@@ -14,14 +14,16 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 public class Entreprise extends User {
   private String matriculeFiscale;
+  private String nomEntreprise;
   private String siteWeb;
   private String motDePasse;
 
-  public Entreprise(String id, String firstName, String lastName, String email, String matriculeFiscale, String siteWeb, String motDePasse) {
+  public Entreprise(String id, String firstName, String lastName, String email, String matriculeFiscale, String siteWeb, String motDePasse, String nomEntreprise) {
     super(id, firstName, lastName, email);
     this.matriculeFiscale = matriculeFiscale;
     this.siteWeb = siteWeb;
     this.motDePasse = motDePasse;
+    this.nomEntreprise = nomEntreprise;
   }
 
 }
