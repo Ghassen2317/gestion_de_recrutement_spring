@@ -1,12 +1,95 @@
+
+
+// package com.example.emploinet.service;
+
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.stereotype.Service;
+
+// import com.example.emploinet.enums.Statut;
+// import com.example.emploinet.model.Candidature;
+// import com.example.emploinet.repository.CandidatureRepository;
+
+// import java.util.List;
+// import java.util.Optional;
+
+// @Service
+// public class CandidatureService {
+
+//     @Autowired
+//     private CandidatureRepository candidatureRepository;
+
+//     public Candidature saveCandidature(Candidature candidature) {
+//         return candidatureRepository.save(candidature);
+//     }
+
+//     public List<Candidature> getAllCandidatures() {
+//         return candidatureRepository.findAll();
+//     }
+
+//     public Optional<Candidature> getCandidatureById(String id) {
+//         return candidatureRepository.findById(id);
+//     }
+
+//     public List<Candidature> getCandidaturesByNomOffreEmploi(String nomOffreEmploi) {
+//         return candidatureRepository.findByNomOffreEmploi(nomOffreEmploi);
+//     }
+
+//     public void deleteCandidatureById(String id) {
+//         candidatureRepository.deleteById(id);
+//     }
+
+//     public Candidature acceptCandidature(String id) {
+//         Optional<Candidature> optionalCandidature = candidatureRepository.findById(id);
+//         if (optionalCandidature.isPresent()) {
+//             Candidature candidature = optionalCandidature.get();
+//             candidature.setStatut(Statut.ACCEPTEE);
+//             return candidatureRepository.save(candidature);
+//         }
+//         return null;
+//     }
+// }
+
 package com.example.emploinet.service;
 
+import com.example.emploinet.model.Candidature;
+import com.example.emploinet.repository.CandidatureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.example.emploinet.repository.CandidatureRepository;
+import com.example.emploinet.enums.Statut;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CandidatureService {
-  @Autowired
-  private CandidatureRepository candidatureRepository;
+
+    @Autowired
+    private CandidatureRepository candidatureRepository;
+
+    public Candidature createCandidature(Candidature candidature) {
+        return candidatureRepository.save(candidature);
+    }
+
+    public List<Candidature> getAllCandidatures() {
+        return candidatureRepository.findAll();
+    }
+
+    // public List<Candidature> getCandidatureByNomEntreprise(String nomEntreprise) {
+    //     return candidatureRepository.findByNomEntreprise(nomEntreprise);
+    // }
+    public List<Candidature> getCandidatureByNomOffreEmploi(String nomOffreEmploi) {
+        return candidatureRepository.findByNomOffreEmploi(nomOffreEmploi);
+    }
+
+    public List<Candidature> getCandidaturesByNomOffreEmploi(String nomOffreEmploi) {
+                 return candidatureRepository.findByNomOffreEmploi(nomOffreEmploi);
+            }
+    public Candidature accepterCandidature(String id) {
+        Candidature candidature = candidatureRepository.findById(id).orElseThrow(() -> new RuntimeException("Candidature not found"));
+        candidature.setStatut(Statut.ACCEPTEE);
+        return candidatureRepository.save(candidature);
+    }
+
+    public void deleteCandidature(String id) {
+        candidatureRepository.deleteById(id);
+    }
 }
