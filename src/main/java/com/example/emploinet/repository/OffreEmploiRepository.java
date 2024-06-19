@@ -8,7 +8,7 @@ import com.example.emploinet.enums.TypeContrat;
 import com.example.emploinet.model.OffreEmploi;
 import java.util.Date;
 
-public interface OffreEmploiRepository extends MongoRepository<OffreEmploi, String>, OffreEmploiDateExpirationUpdate {
+public interface OffreEmploiRepository extends MongoRepository<OffreEmploi, String> {
   List<OffreEmploi> findByNomEntreprise(String nomEntreprise);
 
   List<OffreEmploi> findByNomOffreEmploi(String nomOffreEmploi);
