@@ -21,8 +21,9 @@ public class Candidature {
   private String id;
   private String candidat;
   private String nomOffreEmploi;
-  private Date datePostulation;
-  private byte[] curriculumVitae;
+ // private Date datePostulation;
+  //private byte[] curriculumVitae;
   private byte[] lettreMotivation;
   private Statut statut;
+  
 }

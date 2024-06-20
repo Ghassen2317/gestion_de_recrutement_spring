@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/candidatures")
@@ -23,28 +24,33 @@ public class CandidatureController {
         return new ResponseEntity<>(newCandidature, HttpStatus.CREATED);
     }
 
+        // methode 1
     // Méthode pour obtenir toutes les candidatures
-    @GetMapping
-    public ResponseEntity<List<Candidature>> getAllCandidatures() {
-        List<Candidature> candidatures = candidatureService.getAllCandidatures();
-        return new ResponseEntity<>(candidatures, HttpStatus.OK);
+    @GetMapping("/all")
+    public List<Candidature> getAllCandidatures() {
+        return candidatureService.getAllCandidatures();
     }
 
- 
+    // methode 2
     @GetMapping("/offreEmploi/{nomOffreEmploi}")
     public ResponseEntity<List<Candidature>> getCandidatureByNomOffreEmploi(@PathVariable String nomOffreEmploi) {
         List<Candidature> candidatures = candidatureService.getCandidatureByNomOffreEmploi(nomOffreEmploi);
         return new ResponseEntity<>(candidatures, HttpStatus.OK);
     }
-  
-    public ResponseEntity<Candidature> updateCandidature(@PathVariable String id, @RequestBody Candidature candidature) {
-        Candidature updatedCandidature = candidatureService.updateCandidature(id, candidature);
-        return new ResponseEntity<>(updatedCandidature, HttpStatus.OK);
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Candidature>> getCandidatureById(@PathVariable String id) {
+        Optional<Candidature> candidatures = candidatureService.getCandidatureById(id);
+        return new ResponseEntity<>(candidatures, HttpStatus.OK);
     }
-    // Méthode pour accepter une candidature (mise à jour du statut)
+
     @PutMapping("/{id}/accepter")
     public ResponseEntity<Candidature> accepterCandidature(@PathVariable String id) {
         Candidature updatedCandidature = candidatureService.accepterCandidature(id);
+        return new ResponseEntity<>(updatedCandidature, HttpStatus.OK);
+    }
+    @PutMapping("/{id}/refuser")
+    public ResponseEntity<Candidature> refuserCandidature(@PathVariable String id) {
+        Candidature updatedCandidature = candidatureService.refuserCandidature(id);
         return new ResponseEntity<>(updatedCandidature, HttpStatus.OK);
     }
 

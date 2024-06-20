@@ -52,10 +52,13 @@
 package com.example.emploinet.service;
 
 import com.example.emploinet.model.Candidature;
+import com.example.emploinet.model.OffreEmploi;
 import com.example.emploinet.repository.CandidatureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.emploinet.enums.Statut;
+import com.example.emploinet.exception.ResourceNotFoundException;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -73,19 +76,21 @@ public class CandidatureService {
         return candidatureRepository.findAll();
     }
 
-    // public List<Candidature> getCandidatureByNomEntreprise(String nomEntreprise) {
-    //     return candidatureRepository.findByNomEntreprise(nomEntreprise);
-    // }
+    
     public List<Candidature> getCandidatureByNomOffreEmploi(String nomOffreEmploi) {
         return candidatureRepository.findByNomOffreEmploi(nomOffreEmploi);
     }
-
-    public List<Candidature> getCandidaturesByNomOffreEmploi(String nomOffreEmploi) {
-                 return candidatureRepository.findByNomOffreEmploi(nomOffreEmploi);
-            }
+    public Optional<Candidature> getCandidatureById(String id) {
+        return candidatureRepository.findById(id);
+    }
     public Candidature accepterCandidature(String id) {
         Candidature candidature = candidatureRepository.findById(id).orElseThrow(() -> new RuntimeException("Candidature not found"));
         candidature.setStatut(Statut.ACCEPTEE);
+        return candidatureRepository.save(candidature);
+    }
+    public Candidature refuserCandidature(String id) {
+        Candidature candidature = candidatureRepository.findById(id).orElseThrow(() -> new RuntimeException("Candidature not found"));
+        candidature.setStatut(Statut.REFUSEE);
         return candidatureRepository.save(candidature);
     }
 
