@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RestController
 @RequestMapping("/api/offresEmploi")
 
-public class OffreEmploiController {
+public class offreEmploiController {
   @Autowired
   private OffreEmploiService offreEmploiService;
 

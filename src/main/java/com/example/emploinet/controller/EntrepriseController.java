@@ -1,7 +1,7 @@
-package com.example.emploinet.controller;
+// package com.example.emploinet.controller;
 
-import java.util.List;
-import java.util.Optional;
+// import java.util.List;
+// import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,22 +14,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.emploinet.model.Entreprise;
-import com.example.emploinet.service.EntrepriseService;
-import org.springframework.web.bind.annotation.RequestParam;
+// import com.example.emploinet.model.Entreprise;
+// import com.example.emploinet.service.EntrepriseService;
+// import org.springframework.web.bind.annotation.RequestParam;
 
 
-@RestController
-@RequestMapping("/api/entreprises")
-public class EntrepriseController {
+// @RestController
+// @RequestMapping("/api/entreprises")
+// public class EntrepriseController {
 
-  @Autowired
-  private EntrepriseService entrepriseService;
+//   @Autowired
+//   private EntrepriseService entrepriseService;
 
-  @GetMapping("/all")
-  public List<Entreprise> getAllEntreprise() {
-    return entrepriseService.getAllEntreprise();
-  }
+//   @GetMapping("/all")
+//   public List<Entreprise> getAllEntreprise() {
+//     return entrepriseService.getAllEntreprise();
+//   }
 
   @PostMapping("/create")
   public ResponseEntity<Entreprise> createEntreprise(@RequestBody Entreprise entreprise) {
@@ -54,4 +54,4 @@ public class EntrepriseController {
   //     }
   // }
   
-}
+// }
