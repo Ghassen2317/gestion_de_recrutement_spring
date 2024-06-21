@@ -17,6 +17,9 @@ public class EntrepriseService {
   public List<Entreprise> getAllEntreprise() {
     return entrepriseRepository.findAll();
   }
+  public Entreprise getEntrepriseByNom(String nomEntreprise) {
+    return entrepriseRepository.findByNomEntreprise(nomEntreprise);
+  }
 
   public Optional<Entreprise> getEntrepriseById(String id) {
     return entrepriseRepository.findById(id);

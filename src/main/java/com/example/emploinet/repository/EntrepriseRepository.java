@@ -6,4 +6,5 @@ import com.example.emploinet.model.Entreprise;
 
 public interface EntrepriseRepository extends MongoRepository<Entreprise, String> {
 
+  Entreprise findByNomEntreprise(String nomEntreprise);
 }

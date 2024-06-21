@@ -68,5 +68,4 @@ public class OffreEmploiService {
   public List<OffreEmploi> getNbExperienceOffre(Integer nbExperienceOffre) {
   return offreEmploiRepository.findByNbExperienceOffre(nbExperienceOffre);
   }
-
 }

@@ -1,5 +1,7 @@
 package com.example.emploinet.model;
 
+import java.util.Set;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -15,8 +17,9 @@ import lombok.NoArgsConstructor;
 public class Administrateur extends User {
   private String motDePasse;
 
-  public Administrateur(String id, String firstName, String lastName, String email, String motDePasse) {
-    super(id, firstName, lastName, email);
+  public Administrateur(String id, String firstName, String lastName, String email, String motDePasse,
+      Set<Role> roles) {
+    super(id, firstName, lastName, email, roles);
     this.motDePasse = motDePasse;
   }
 }
