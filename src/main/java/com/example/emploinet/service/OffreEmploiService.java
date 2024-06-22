@@ -12,6 +12,8 @@ import com.example.emploinet.exception.ResourceNotFoundException;
 import com.example.emploinet.model.OffreEmploi;
 import com.example.emploinet.repository.OffreEmploiRepository;
 
+
+
 @Service
 public class OffreEmploiService {
   @Autowired
