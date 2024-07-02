@@ -43,18 +43,20 @@ public class OffreEmploiService {
       OffreEmploi offreEmploi = optionalOffreEmploi.get();
       offreEmploi.setDateExpiration(dateExpiration);
       return offreEmploiRepository.save(offreEmploi);
-    } 
-    else {
-      throw new ResourceNotFoundException("OffreEmploi not found with id: " + id);
+    } else {
+      throw new ResourceNotFoundException("OffreEmploi not found");
     }
   }
 
   public void deleteOffreEmploi(String id) {
+    if (!offreEmploiRepository.existsById(id)) {
+      throw new ResourceNotFoundException("Offre Emploi not found");
+    }
     offreEmploiRepository.deleteById(id);
   }
 
   public List<OffreEmploi> getTypeContrat(TypeContrat typeContrat) {
-  return offreEmploiRepository.findByTypeContrat(typeContrat);
+    return offreEmploiRepository.findByTypeContrat(typeContrat);
   }
 
   // public List<OffreEmploi> getDateExpiration(Date dateExpiration) {
@@ -62,10 +64,10 @@ public class OffreEmploiService {
   // }
 
   public List<OffreEmploi> getRegion(String region) {
-  return offreEmploiRepository.findByRegion(region);
+    return offreEmploiRepository.findByRegion(region);
   }
 
   public List<OffreEmploi> getNbExperienceOffre(Integer nbExperienceOffre) {
-  return offreEmploiRepository.findByNbExperienceOffre(nbExperienceOffre);
+    return offreEmploiRepository.findByNbExperienceOffre(nbExperienceOffre);
   }
 }

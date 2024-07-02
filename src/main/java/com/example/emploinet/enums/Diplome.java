@@ -1,0 +1,11 @@
+package com.example.emploinet.enums;
+
+public enum Diplome {
+  LICENCE,
+  MASTER,
+  DOCTORAT,
+  BACCALAUREAT,
+  CERTIFICAT_DE_FORMATION,
+  DIPLOME_DETUDE_SECONDAIRE,
+  DIPLOME_DETUDE_PROFESSIONNEL
+}

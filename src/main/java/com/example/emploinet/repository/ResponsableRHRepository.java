@@ -8,8 +8,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import com.example.emploinet.model.ResponsableRH;
 
 public interface ResponsableRHRepository extends MongoRepository<ResponsableRH, String> {
-
-  
   List<ResponsableRH> findByEntrepriseId(String entrepriseId);
-  Optional<ResponsableRH> findByMatricule(String matricule);
+  Optional<ResponsableRH> findByEmail(String email);
 }

@@ -13,19 +13,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
 public class Entreprise extends User {
   private String matriculeFiscale;
   private String nomEntreprise;
   private String siteWeb;
-  private String motDePasse;
 
   public Entreprise(String id, String firstName, String lastName, String email, String matriculeFiscale, String siteWeb,
-      String motDePasse, String nomEntreprise, Set<Role> roles) {
-    super(id, firstName, lastName, email, roles);
+      String password, String nomEntreprise, Set<Role> roles) {
+    super(id, firstName, lastName, email, password, roles);
     this.matriculeFiscale = matriculeFiscale;
     this.siteWeb = siteWeb;
-    this.motDePasse = motDePasse;
     this.nomEntreprise = nomEntreprise;
   }
 

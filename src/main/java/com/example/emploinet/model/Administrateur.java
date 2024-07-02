@@ -10,16 +10,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Document(collection = "administrateurs")
-@AllArgsConstructor
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class Administrateur extends User {
-  private String motDePasse;
 
-  public Administrateur(String id, String firstName, String lastName, String email, String motDePasse,
+  public Administrateur(String id, String firstName, String lastName, String email, String password,
       Set<Role> roles) {
-    super(id, firstName, lastName, email, roles);
-    this.motDePasse = motDePasse;
+    super(id, firstName, lastName, password, email, roles);
   }
 }
