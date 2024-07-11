@@ -4,11 +4,12 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
 import com.example.emploinet.enums.TypeContrat;
 import com.example.emploinet.model.OffreEmploi;
 
-public interface OffreEmploiRepository extends MongoRepository<OffreEmploi, String> {
+public interface OffreEmploiRepository extends MongoRepository<OffreEmploi, String>, CustomOffreEmploiRepository {
   List<OffreEmploi> findByNomEntreprise(String nomEntreprise);
 
   List<OffreEmploi> findByNomOffreEmploi(String nomOffreEmploi);

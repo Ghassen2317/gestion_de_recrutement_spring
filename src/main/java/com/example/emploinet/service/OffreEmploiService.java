@@ -70,4 +70,9 @@ public class OffreEmploiService {
   public List<OffreEmploi> getNbExperienceOffre(Integer nbExperienceOffre) {
     return offreEmploiRepository.findByNbExperienceOffre(nbExperienceOffre);
   }
+
+  public List<OffreEmploi> findOffers(String typeContrat, String region, Integer nbExperience, String diplome) {
+   
+    return offreEmploiRepository.findByFilters(typeContrat, region, nbExperience, diplome);
+}
 }

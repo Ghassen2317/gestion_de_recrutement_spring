@@ -25,7 +25,6 @@ public class Candidature {
   private String lastName;
   private String email;
   private Integer age;
-  private String adresse;
   private Integer nbExperience;
   private Diplome diplome; 
   private Sexe sexe; 

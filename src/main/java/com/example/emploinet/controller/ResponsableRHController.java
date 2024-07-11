@@ -32,7 +32,9 @@ public class ResponsableRHController {
     public ResponseEntity<List<ResponsableRH>> getRhByEntrepriseId(@PathVariable String entrepriseId) {
         List<ResponsableRH> responsables = responsableRHService.getRhByEntrepriseId(entrepriseId);
         return new ResponseEntity<>(responsables, HttpStatus.OK);
-    }
+    }   
+
+    // Zid getRhByMatriculeFiscale
 
     @PostMapping("/create/{entrepriseId}")
     public ResponseEntity<ResponsableRH> createResponsableRH(@RequestBody ResponsableRH responsableRH,

@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -123,4 +124,15 @@ public class offreEmploiController {
   List<OffreEmploi> offreEmplois = offreEmploiService.getNbExperienceOffre(nbExperienceOffre);
   return new ResponseEntity<>(offreEmplois, HttpStatus.OK);
   } 
+
+  @GetMapping("/filtered")
+    public ResponseEntity<List<OffreEmploi>> getFilteredOffres(
+            @RequestParam(required = false) String typeContrat,
+            @RequestParam(required = false) String region,
+            @RequestParam(required = false) Integer nbExperience,
+            @RequestParam(required = false) String diplome) {
+
+        List<OffreEmploi> filteredOffers = offreEmploiService.findOffers(typeContrat, region, nbExperience, diplome);
+        return new ResponseEntity<>(filteredOffers, HttpStatus.OK);
+    }
 }

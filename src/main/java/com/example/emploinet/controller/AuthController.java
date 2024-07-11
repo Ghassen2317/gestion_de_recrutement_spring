@@ -56,12 +56,6 @@ public class AuthController {
 
     @PostMapping("/forgot-password")
     public ResponseEntity<?> forgotPassword(@RequestBody ForgotPasswordRequestDTO request) {
-        // try {
-        //   passwordResetService.sendPasswordResetMail(request.getEmail());
-        //   return ResponseEntity.status(HttpStatus.OK).body("L'email de réinitialisation du mot de passe a été envoyé");
-        // } catch (Exception e) {
-        //   return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Une erreur est survenue lors de l'envoi de l'email de réinitialisation du mot de passe");
-        // }
         passwordResetService.sendPasswordResetMail(request.getEmail());
         return ResponseEntity.status(HttpStatus.OK).body("L'email de réinitialisation du mot de passe a été envoyé");
     }
